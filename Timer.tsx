@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 
-export default class Hello extends Component {
+export default class Timer extends Component {
 
   constructor(props){
     super(props);
     this.state = {
-      currentDateTime: new Date().toString()
+      currentDateTime: new Date()
     }
+    this.functionHandler = this.UpdateDateTime.bind(this);
   }
 
   UpdateDateTime(){
     setInterval(() => {  
       this.setState({
-        currentDateTime: new Date().toString()
+        currentDateTime: new Date()
       })
     }, 1000)
   }
@@ -28,7 +29,7 @@ export default class Hello extends Component {
   render() {
     return(
       <div>
-      {this.state.currentDateTime}
+      {this.state.currentDateTime.toString()}
     </div>
     )
   }
